@@ -1,0 +1,10 @@
+[Unit]
+Description=Speedtest Service
+
+[Service]
+Type=oneshot
+ExecStart=sudo /usr/bin/env python3 /srv/isp-monitor/speedtest.py
+WorkingDirectory=/srv/isp-monitor
+
+[Install]
+WantedBy=multi-user.target
