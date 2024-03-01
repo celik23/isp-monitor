@@ -16,6 +16,7 @@ systemctl status speedtest.service
 systemctl status speedtest.timer
 journalctl -u speedtest.service
 journalctl -u speedtest.timer
+journalctl -u speedtest -f
 ```
 
 ## Uninstall
