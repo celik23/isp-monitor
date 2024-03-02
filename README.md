@@ -1,5 +1,9 @@
 # ISP Monitor
 
+Hourly internet bandwidth and ping updated on a daily basis. Service is Fiber First's Gigabit plan.
+
+![snapshot](/plots/latest.png)
+
 ## Install
 
 ```shell
