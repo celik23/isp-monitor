@@ -1,0 +1,8 @@
+[Unit]
+Description=Visualize Timer
+
+[Timer]
+OnCalendar=*-*-* 00:01:00
+
+[Install]
+WantedBy=timers.target
