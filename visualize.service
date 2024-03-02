@@ -1,0 +1,10 @@
+[Unit]
+Description=Visualize Service
+
+[Service]
+Type=oneshot
+ExecStart=/srv/isp-monitor/venv/bin/python3 /srv/isp-monitor/visualize.py
+WorkingDirectory=/srv/isp-monitor
+
+[Install]
+WantedBy=multi-user.target
