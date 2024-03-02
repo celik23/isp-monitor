@@ -5,7 +5,9 @@ import matplotlib.pyplot as plt
 from matplotlib.ticker import ScalarFormatter
 import pandas as pd
 
-df = pd.read_csv("speedtest.csv")
+date_string = datetime.datetime.now().strftime('%Y-%m-%d')
+
+df = pd.read_csv("/srv/isp-monitor/speedtest.csv")
 df["timestamp"] = pd.to_datetime(df["timestamp"])
 df = df[df["timestamp"] >= datetime.datetime.now(pytz.utc) - datetime.timedelta(hours=24)]
 df.set_index("timestamp", inplace=True)
@@ -29,7 +31,7 @@ formatter1.set_scientific(True)
 formatter1.set_powerlimits((8, 8))  # Force scientific notation for 1x10^8
 ax1.yaxis.set_major_formatter(formatter1)
 
-ax1.set_title("Hourly Average Bandwidth and Ping Latency")
+ax1.set_title(f"Hourly Average Bandwidth and Ping Latency - {date_string}")
 lines1, labels1 = ax1.get_legend_handles_labels()
 lines2, labels2 = ax2.get_legend_handles_labels()
 ax1.legend(lines1 + lines2, labels1 + labels2, loc="best")
@@ -37,5 +39,5 @@ ax1.legend(lines1 + lines2, labels1 + labels2, loc="best")
 ax1.grid(True)
 ax2.grid(True)
 plt.tight_layout()
-plt.savefig("plots/latest.png")
-plt.savefig(f"plots/{datetime.datetime.now().strftime('%Y-%m-%d')}.png")
+plt.savefig("/srv/isp-monitor/plots/latest.png")
+plt.savefig(f"/srv/isp-monitor/plots/{date_string}.png")
